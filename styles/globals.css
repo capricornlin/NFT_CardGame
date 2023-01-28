@@ -1,0 +1,520 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.head-text::before {
+  content: '';
+  display: flex;
+  width: 4px;
+  height: 100%;
+  background: #7f46f0;
+  margin-right: 12px;
+}
+
+.battle-card {
+  position: relative;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.battle-card:hover:before {
+  opacity: 1;
+}
+
+.battle-card:hover .info {
+  opacity: 1;
+}
+
+.battle-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.battle-card .info {
+  position: absolute;
+  z-index: 3;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.gameload {
+  background: rgba(127, 70, 240, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* Battle Animation Effect */
+.container {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* .container:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(0, 0, 0, 0.25);
+    transform: rotate(45deg);
+    outline: 10px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .container:nth-child(4n):before,
+  .container:nth-child(7n):before {
+    display: none;
+  } */
+
+.particle {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+.particle:nth-child(1) .sparcle {
+  -webkit-animation-delay: 0ms;
+  animation-delay: 0ms;
+}
+.particle:nth-child(2) .sparcle {
+  -webkit-animation-delay: 50ms;
+  animation-delay: 50ms;
+}
+.particle:nth-child(3) .sparcle {
+  -webkit-animation-delay: 100ms;
+  animation-delay: 100ms;
+}
+.particle:nth-child(4) .sparcle {
+  -webkit-animation-delay: 150ms;
+  animation-delay: 150ms;
+}
+.particle:nth-child(5) .sparcle {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.particle:nth-child(6) .sparcle {
+  -webkit-animation-delay: 250ms;
+  animation-delay: 250ms;
+}
+.particle:nth-child(7) .sparcle {
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+.particle:nth-child(8) .sparcle {
+  -webkit-animation-delay: 350ms;
+  animation-delay: 350ms;
+}
+.particle:nth-child(9) .sparcle {
+  -webkit-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+.particle:nth-child(10) .sparcle {
+  -webkit-animation-delay: 450ms;
+  animation-delay: 450ms;
+}
+.particle:nth-child(11) .sparcle {
+  -webkit-animation-delay: 500ms;
+  animation-delay: 500ms;
+}
+.particle:nth-child(12) .sparcle {
+  -webkit-animation-delay: 550ms;
+  animation-delay: 550ms;
+}
+.particle:nth-child(13) .sparcle {
+  -webkit-animation-delay: 600ms;
+  animation-delay: 600ms;
+}
+.particle:nth-child(14) .sparcle {
+  -webkit-animation-delay: 650ms;
+  animation-delay: 650ms;
+}
+.particle:nth-child(15) .sparcle {
+  -webkit-animation-delay: 700ms;
+  animation-delay: 700ms;
+}
+.particle:nth-child(16) .sparcle {
+  -webkit-animation-delay: 750ms;
+  animation-delay: 750ms;
+}
+.particle:nth-child(17) .sparcle {
+  -webkit-animation-delay: 800ms;
+  animation-delay: 800ms;
+}
+.particle:nth-child(18) .sparcle {
+  -webkit-animation-delay: 850ms;
+  animation-delay: 850ms;
+}
+.particle:nth-child(19) .sparcle {
+  -webkit-animation-delay: 900ms;
+  animation-delay: 900ms;
+}
+.particle:nth-child(20) .sparcle {
+  -webkit-animation-delay: 950ms;
+  animation-delay: 950ms;
+}
+.particle:nth-child(21) .sparcle {
+  -webkit-animation-delay: 1000ms;
+  animation-delay: 1000ms;
+}
+
+.sparcle {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(228, 249, 250, 0);
+  will-change: transform, box-shadow, background-color;
+  transform: rotate(45deg) scale(0.5) translateZ(0);
+  -webkit-animation: explode 333ms;
+  animation: explode 333ms;
+  box-shadow: 0 0 0 0 #fde655;
+}
+
+@-webkit-keyframes explode {
+  0% {
+    background-color: #e4f9fa;
+    transform: rotate(45deg) scale(1.2) translateZ(0);
+    box-shadow: 0 0 0 0 #fde655;
+  }
+  40% {
+    background-color: rgba(228, 249, 250, 0.1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1) translateZ(0);
+    box-shadow: 0 0 0 10px #fde655;
+    background-color: rgba(228, 249, 250, 0);
+  }
+  60% {
+    box-shadow: 0 0 0 50px #d47946;
+    transform: rotate(45deg) scale(0.5) translateZ(0);
+  }
+  70% {
+    background-color: rgba(228, 249, 250, 0);
+    box-shadow: 0 0 0 30px #7a2c1f;
+  }
+  100% {
+    background-color: #7a2c1f;
+    box-shadow: 0 0 0 0 #7a2c1f;
+    transform: rotate(45deg) scale(0.25) translateZ(0);
+  }
+}
+
+@keyframes explode {
+  0% {
+    background-color: #e4f9fa;
+    transform: rotate(45deg) scale(1.2) translateZ(0);
+    box-shadow: 0 0 0 0 #fde655;
+  }
+  40% {
+    background-color: rgba(228, 249, 250, 0.1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1) translateZ(0);
+    box-shadow: 0 0 0 10px #fde655;
+    background-color: rgba(228, 249, 250, 0);
+  }
+  60% {
+    box-shadow: 0 0 0 50px #d47946;
+    transform: rotate(45deg) scale(0.5) translateZ(0);
+  }
+  70% {
+    background-color: rgba(228, 249, 250, 0);
+    box-shadow: 0 0 0 30px #7a2c1f;
+  }
+  100% {
+    background-color: #7a2c1f;
+    box-shadow: 0 0 0 0 #7a2c1f;
+    transform: rotate(45deg) scale(0.25) translateZ(0);
+  }
+}
+
+@layer components {
+  /* // general */
+
+  .headText {
+    @apply font-rajdhani font-bold text-white sm:text-6xl text-4xl;
+  }
+  .normalText {
+    @apply font-rajdhani font-normal text-[24px] text-siteWhite;
+  }
+
+  .footerText {
+    @apply font-rajdhani font-medium text-base text-white;
+  }
+
+  .infoText {
+    @apply font-rajdhani font-medium text-lg text-siteViolet cursor-pointer;
+  }
+
+  .glassEffect {
+    @apply bg-white backdrop-filter backdrop-blur-lg bg-opacity-10;
+  }
+
+  .hocContainer {
+    @apply min-h-screen flex xl:flex-row flex-col relative;
+  }
+  .hocContentBox {
+    @apply flex flex-1 justify-between bg-siteblack py-8 sm:px-12 px-8 flex-col;
+  }
+
+  .hocLogo {
+    @apply w-[160px] h-[52px] object-contain cursor-pointer;
+  }
+
+  .hocBodyWrapper {
+    @apply flex-1 flex justify-center flex-col xl:mt-0 my-16;
+  }
+
+  .joinHeadText {
+    @apply font-rajdhani font-semibold text-2xl text-white mb-3;
+  }
+
+  .joinContainer {
+    @apply flex flex-col gap-3 mt-3 mb-5;
+  }
+  .joinBattleTitle {
+    @apply font-rajdhani font-normal text-xl text-white;
+  }
+
+  .joinLoading {
+    @apply font-rajdhani font-normal text-xl text-white;
+  }
+
+  .battlegroundContainer {
+    @apply min-h-screen bg-landing flex-col py-12 px-4;
+  }
+
+  .battleGroundsWrapper {
+    @apply flex-wrap mt-10 max-w-[1200px];
+  }
+
+  .battleGroundCard {
+    @apply sm:w-[420px] w-full h-[260px] p-2  m-4 rounded-lg cursor-pointer battle-card;
+  }
+
+  .battleGroundCardImg {
+    @apply w-full h-full object-cover rounded-md;
+  }
+
+  .battleGroundCardText {
+    @apply font-rajdhani font-semibold text-2xl text-white;
+  }
+
+  /* // Game page */
+  .gameContainer {
+    @apply w-screen min-h-screen bg-cover bg-no-repeat bg-center flex-col;
+  }
+
+  .gameMoveBox {
+    @apply sm:w-20 w-14 sm:h-20 h-14 rounded-full cursor-pointer border-[2px];
+  }
+
+  .gameMoveIcon {
+    @apply w-1/2 h-1/2 object-contain;
+  }
+
+  /* // player info component */
+  .playerImg {
+    @apply w-14 h-14 object-contain rounded-full;
+  }
+
+  .playerHealth {
+    @apply flex flex-row bg-white rounded-md p-2 sm:min-w-[512px] min-w-[312px] sm:min-h-[48px] min-h-[40px] bg-opacity-10 backdrop-filter backdrop-blur-lg mx-3;
+  }
+
+  .playerHealthBar {
+    @apply sm:w-4 w-2 sm:h-8 h-6 rounded-sm;
+  }
+
+  .playerMana {
+    @apply w-14 h-14 rounded-full text-white font-rajdhani font-extrabold text-2xl cursor-pointer;
+  }
+
+  .playerInfo {
+    @apply font-rajdhani font-medium;
+  }
+
+  .playerInfoSpan {
+    @apply font-extrabold text-white;
+  }
+
+  /* // card component */
+  .cardContainer {
+    @apply relative sm:w-[260px] w-[220px] sm:h-[335px] h-[280px] z-0 transition-all;
+  }
+
+  .cardImg {
+    @apply w-full h-full object-contain;
+  }
+
+  .cardPointContainer {
+    @apply absolute sm:w-[40px] w-[32px] sm:h-[40px] h-[32px] rounded-[25px] bottom-[31.4%];
+  }
+
+  .cardPoint {
+    @apply font-rajdhani text-[20px] font-bold;
+  }
+
+  .cardTextContainer {
+    @apply absolute w-full bottom-[13.5%] left-3;
+  }
+
+  .cardText {
+    @apply font-rajdhani text-[26px] font-bold text-white;
+  }
+
+  /* // custom button component */
+  .btn {
+    @apply px-4 py-2 rounded-lg bg-siteViolet w-fit text-white font-rajdhani font-bold;
+  }
+
+  /* // custom input component */
+  .label {
+    @apply font-rajdhani font-semibold text-2xl text-white mb-3;
+  }
+
+  .input {
+    @apply bg-siteDimBlack text-white outline-none focus:outline-siteViolet p-4 rounded-md sm:max-w-[50%] max-w-full;
+  }
+
+  /* // gameload component */
+  .gameLoadContainer {
+    @apply absolute inset-0 z-10 w-full h-screen gameload flex-col;
+  }
+
+  .gameLoadBtnBox {
+    @apply w-full flex justify-end px-8;
+  }
+
+  .gameLoadText {
+    @apply font-rajdhani text-siteWhite text-2xl mt-5 text-center;
+  }
+
+  .gameLoadPlayersBox {
+    @apply flex justify-evenly items-center mt-20;
+  }
+
+  .gameLoadPlayerImg {
+    @apply md:w-36 w-24 md:h-36 h-24 object-contain rounded-full drop-shadow-lg;
+  }
+
+  .gameLoadPlayerText {
+    @apply mt-3 font-rajdhani text-white md:text-xl text-base;
+  }
+
+  .gameLoadVS {
+    @apply font-rajdhani font-extrabold text-siteViolet text-7xl mx-16;
+  }
+
+  /* // gameInfo component */
+  .gameInfoIconBox {
+    @apply absolute right-2 top-1/2;
+  }
+
+  .gameInfoIcon {
+    @apply bg-siteViolet w-10 h-10 rounded-md cursor-pointer;
+  }
+
+  .gameInfoIconImg {
+    @apply w-3/5 h-3/5 object-contain invert;
+  }
+
+  .gameInfoSidebar {
+    @apply absolute p-6 right-0 top-0 h-screen rounded-md flex-col transition-all ease-in duration-300;
+  }
+
+  .gameInfoSidebarCloseBox {
+    @apply flex justify-end mb-8;
+  }
+
+  .gameInfoSidebarClose {
+    @apply w-10 h-10 rounded-md bg-siteViolet text-white font-rajdhani font-extrabold text-xl cursor-pointer;
+  }
+
+  .gameInfoHeading {
+    @apply font-rajdhani font-bold text-white text-3xl;
+  }
+
+  .gameInfoText {
+    @apply font-rajdhani font-medium text-white text-xl mb-2;
+  }
+
+  /* // common */
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+
+  .flexEnd {
+    @apply flex justify-end items-end;
+  }
+
+  .flexBetween {
+    @apply flex justify-between items-center;
+  }
+
+  /* // alert */
+  /*>> bg-blue-100 */
+  .info {
+    @apply text-blue-700  dark:bg-blue-200 dark:text-blue-800;
+  }
+
+  .success {
+    @apply text-green-700 bg-green-100 dark:bg-green-200 dark:text-green-800;
+  }
+
+  .failure {
+    @apply text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800;
+  }
+
+  .alertContainer {
+    @apply absolute z-10 top-5 left-0 right-0;
+  }
+
+  .alertWrapper {
+    @apply p-4 rounded-lg font-rajdhani font-semibold text-lg;
+  }
+
+  .alertIcon {
+    @apply flex-shrink-0 inline w-6 h-6 mr-2;
+  }
+
+  /* // modal */
+  .modalText {
+    @apply font-rajdhani font-bold text-3xl text-white mb-6 text-center;
+  }
+}
+
+@layer utilities {
+}

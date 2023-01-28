@@ -1,0 +1,50 @@
+{
+  "name": "nftcardgame",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0",
+    "axios": "^1.2.2",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2",
+    "next": "13.1.1",
+    "next-themes": "^0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-modal": "^3.16.1",
+    "react-parallax-tilt": "^1.7.90",
+    "react-tooltip": "^5.5.2",
+    "url-loader": "^4.1.1",
+    "web3modal": "^1.9.10"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.7",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.4",
+    "@typechain/ethers-v5": "^10.2.0",
+    "@typechain/hardhat": "^6.1.5",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^9.1.1",
+    "autoprefixer": "^10.4.13",
+    "chai": "^4.3.7",
+    "eslint": "8.31.0",
+    "eslint-config-next": "13.1.1",
+    "file-loader": "^6.2.0",
+    "hardhat": "^2.12.5",
+    "hardhat-gas-reporter": "^1.0.9",
+    "postcss": "^8.4.20",
+    "solidity-coverage": "^0.8.2",
+    "tailwindcss": "^3.2.4",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.1",
+    "typescript": "^4.9.4"
+  }
+}
